@@ -12,7 +12,7 @@ describe("tokenfaucet", () => {
   anchor.setProvider(provider);
 
   const program = anchor.workspace.Tokenfaucet as Program<Tokenfaucet>;
-  const mintDecimals = 0;
+  const mintDecimals = 6;
 
   let [mintAddress, mintAddressBump] = PublicKey.findProgramAddressSync(
     [
@@ -46,16 +46,19 @@ describe("tokenfaucet", () => {
   });
 
   it("Create Mint", async () => {
-    console.log("creating mint: ", mintAddress.toBase58());
+    console.log(`creating ${mintDecimals} decimal mint: `, mintAddress.toBase58());
 
+    try{
     const existingMint = await spl_token
       .getMint(provider.connection, mintAddress,'confirmed', spl_token.TOKEN_PROGRAM_ID)
       .catch();
 
     if(existingMint) {
-      console.log('mint already exists. skipping...');
+      console.log('mint already exists.');
       return;
     }
+  } catch(err) {
+  }
 
     const tx = await program.methods
       .createAirdropMint(mintDecimals)

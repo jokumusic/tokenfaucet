@@ -2,7 +2,7 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-tokenfaucet = "8omPPdRdNGtbeyTHn7zGhu7L3sXj2m2oesMrxE4fpTRh"
+tokenfaucet = "FYCn1UsoWGFGwhdErrbLVBeTGpb3665k61tywbRmhNbY"
 
 [registry]
 url = "https://api.apr.dev"
