@@ -3,7 +3,7 @@ use anchor_spl::{
     token::{mint_to, Mint, MintTo, Token, TokenAccount},
 };
 
-declare_id!("FYCn1UsoWGFGwhdErrbLVBeTGpb3665k61tywbRmhNbY");
+declare_id!("FPVv2drxu9Gu3P8DJjBj94izY3s2HmphjxWfi6BrAmNt");
 
 const MINT_SEED_BYTES: &[u8] = b"mint";
 
